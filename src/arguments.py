@@ -1,17 +1,18 @@
+import os
+import sqlite3 as sql
+
 import telebot
 from telebot import types
-import sqlite3 as sql
+
+
 
 # <<<<<<   #----------Bot_settings----------#   >>>>>> #
 
-Token = "6713488438:AAGQKLgHiwDuH5cGXWucAgOH0M_2Fg6_xU0"
-bot = telebot.TeleBot(Token)
+bot = telebot.TeleBot(os.getenv("BOT_TOKEN"))
 
-api_key = "f90fa63a2bc73093977117767d2480d4"
+api_key = os.getenv("API_KEY")
 
 activity = {}
-
-#http://api.openweathermap.org/data/2.5/weather?q=Moscow&lang=ru&appid=f90fa63a2bc73093977117767d2480d4&units=metric
 
 # <<<<<<   #----------SQL DATABASE----------#   >>>>>> #
 
@@ -32,6 +33,20 @@ class Text():
   settings_city = "Введите название вашего города (населенного пункта)"
   settings_city_error = "Произошла ошибка :( Город не найден"
   settings_city_confirm = "Успешно ✓"
+
+  #----------Help-------------#
+
+  help_message = '''
+Приветствую тебя! Этот бот предоставляет информацию о погоде в твоем городе. Вот доступные команды:
+
+/start - Запускает бота и позволяет начать использование его функций. После использования этой команды бот будет готов отвечать на запросы о погоде.
+
+/change_city - Выводит текущий город пользователя и предоставляет возможность изменить его. Просто следуй указаниям бота, чтобы выбрать новый город.
+
+/check_city - Выводит текущий город, который был установлен для получения прогноза погоды. Полезно, если ты хочешь убедиться, что бот правильно сохранил выбранный город.
+'''
+
+
 
   #----------Main-------------#
 
@@ -57,3 +72,7 @@ class Text():
   #----------Commands----------#
 
   start_command = "start"
+  help_command = "help"
+  check_city_command = "check_city"
+  change_city_command = "change_city"
+

@@ -1,7 +1,7 @@
 from telebot import types
-from Arguments import Text;
-import Arguments
-import DB
+from arguments import Text;
+import arguments as arguments
+import db
 
 def change_city():
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -13,7 +13,7 @@ def settings():
    return
 
 def make_url(city):
-  url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={Arguments.api_key}&units=metric&lang=ru"
+  url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={arguments.api_key}&units=metric&lang=ru"
   return url
 
 
@@ -39,8 +39,9 @@ class Buttons(object):
   def buttons_keyboard(id):
       markup = types.ReplyKeyboardMarkup(row_width = 3, resize_keyboard=True)
       print(id)
-      print(DB.View_city(id))
-      if DB.View_city(id) != "None":
+      print(db.View_city(id))
+      if db.View_city(id) != "None":
         markup.add(types.KeyboardButton(text = Text.button_weather))
       markup.add(types.KeyboardButton(text = Text.button_city))
-      return markup       
+      return markup    
+

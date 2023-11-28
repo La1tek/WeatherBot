@@ -1,5 +1,5 @@
 import sqlite3 as sql
-from Arguments import SQL
+from arguments import SQL
 import datetime
 
 def Create_Tables():
@@ -81,3 +81,4 @@ def View_city(id):
     return rows[0][1]
 
 Create_Tables()
+
