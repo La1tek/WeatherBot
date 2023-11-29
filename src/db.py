@@ -1,6 +1,8 @@
-import sqlite3 as sql
-from arguments import SQL
 import datetime
+
+import sqlite3 as sql
+
+from arguments import SQL
 
 def Create_Tables():
     con = sql.connect(SQL.name_db)

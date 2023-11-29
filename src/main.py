@@ -40,7 +40,7 @@ def change(message):
 @bot.callback_query_handler(func = lambda call:True)
 def response(function_call):
   if function_call.message:
-    db.Log(function_call.message.chat.id, "InlineButton" + function_call.data)
+    db.Log(function_call.message.chat.id, "InlineButton " + function_call.data)
     if function_call.data == "start": # Коллбек с кнопки при /start
       bot.edit_message_text(chat_id= function_call.message.chat.id, message_id=function_call.message.id, text= Text.start_quest, reply_markup = Buttons.skip())
       bot.answer_callback_query(function_call.id)

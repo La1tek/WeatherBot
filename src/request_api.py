@@ -1,8 +1,10 @@
-import requests
 import functions
-import arguments
+import requests
+
 from telebot import types
 import pymorphy2
+
+import arguments
 
 def GetResult(bot, message, city):
   res = requests.get(functions.make_url(city))

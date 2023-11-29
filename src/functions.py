@@ -1,5 +1,5 @@
 from telebot import types
-from arguments import Text;
+from arguments import Text
 import arguments as arguments
 import db
 
@@ -8,9 +8,6 @@ def change_city():
     item = types.KeyboardButton(Text.welcome_res)
     keyboard.add(item)
     return keyboard
-
-def settings():
-   return
 
 def make_url(city):
   url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={arguments.api_key}&units=metric&lang=ru"
