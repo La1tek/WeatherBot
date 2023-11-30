@@ -8,16 +8,19 @@ import arguments
 
 def GetResult(bot, message, city):
   res = requests.get(functions.make_url(city))
+
   if (res.json()["cod"] == 200) and city != "None":
     # data = json.load(res.text)
     temp = res.json()["main"]["temp"]
     temp_fells = res.json()["main"]["feels_like"]
     humidity = res.json()["main"]["humidity"]
     city = res.json()["name"]
+
     if city[-1] != 'о':
       city = pymorphy2.MorphAnalyzer().parse(city)[0].inflect({'loct'}).word.title()
     city_id = res.json()["id"]
     weather = res.json()["weather"][0]["main"]
+
     if weather in arguments.Text.name_ico:
       ico = arguments.Text.emoji_list[weather]
     else:
@@ -37,10 +40,7 @@ def GetResult(bot, message, city):
 
 def CorrectCity(city):
   res = requests.get(functions.make_url(city))
-  if (res.json()["cod"] == 200):
-    return True
-  else:
-    return False
+  return res.json()["cod"] == 200
 
 def GetCity(city):
   res = requests.get(functions.make_url(city))

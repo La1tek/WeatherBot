@@ -41,6 +41,7 @@ def City(id, city):
   with con:
     cur = con.cursor()
     info = cur.execute('SELECT * FROM users WHERE id_user = ?', (id, )).fetchone()
+
     if info == None: 
       print("Запись добавлена")
       cur.execute(f"INSERT INTO users VALUES ('{id}','{city}')")
@@ -66,9 +67,11 @@ def AddID(id, first_name, username):
   with con:
     cur = con.cursor()
     info = cur.execute('SELECT * FROM users WHERE id_user = ?', (id, )).fetchone()
+
     if info == None: 
       cur.execute(f"INSERT INTO users VALUES ('{id}','None')")
     info = cur.execute('SELECT * FROM names WHERE id_user = ?', (id, )).fetchone()
+    
     if info == None:
       cur.execute(f"INSERT INTO names VALUES ('{id}','{first_name}','{username}')")
     con.commit()

@@ -1,10 +1,13 @@
+import requests
+
 from telebot import types
+
+import db
+import functions
+import request_api
 from arguments import Text, bot, activity
 from functions import Buttons
-import functions
-import requests
-import db
-import request_api
+
 
 # ---------------- Команда /start ---------------- #
 

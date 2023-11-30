@@ -1,6 +1,6 @@
 import os
-import sqlite3 as sql
 
+import sqlite3 as sql
 import telebot
 from telebot import types
 

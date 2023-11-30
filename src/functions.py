@@ -1,4 +1,5 @@
 from telebot import types
+
 from arguments import Text
 import arguments as arguments
 import db
@@ -37,6 +38,7 @@ class Buttons(object):
       markup = types.ReplyKeyboardMarkup(row_width = 3, resize_keyboard=True)
       print(id)
       print(db.View_city(id))
+
       if db.View_city(id) != "None":
         markup.add(types.KeyboardButton(text = Text.button_weather))
       markup.add(types.KeyboardButton(text = Text.button_city))
