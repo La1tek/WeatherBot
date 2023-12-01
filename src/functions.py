@@ -4,12 +4,6 @@ from arguments import Text
 import arguments as arguments
 import db
 
-def change_city():
-    keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    item = types.KeyboardButton(Text.welcome_res)
-    keyboard.add(item)
-    return keyboard
-
 def make_url(city):
   url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={arguments.api_key}&units=metric&lang=ru"
   return url
